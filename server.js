@@ -2,11 +2,25 @@ const express = require('express')
 const port = process.env.PORT || 3000
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
-const app = express();
+const fs = require('fs')
+
+const app = express()
 
 const animeRoutes = require('./api/routes/anime');
 const categoryRoutes = require('./api/routes/categories');
+
+mongoose.connect(
+    `mongodb+srv://Anilist:` +
+    process.env.MONGO_ATLAS_PW +
+    `@anilist-api-sfpmq.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+
+)
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
