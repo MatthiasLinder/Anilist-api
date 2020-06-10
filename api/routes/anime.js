@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+    const anime = {
+        name: req.body.name,
+        description: req.body.description
+    }
     res.status(201).json({
-        message: 'Handling POST requests to /anime'
+        message: 'Handling POST requests to /anime',
+        createdAnime: anime
     })
 })
 

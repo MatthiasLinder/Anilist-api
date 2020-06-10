@@ -8,6 +8,10 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+    const category = {
+        categoryId: req.body.categoryId,
+        description: req.body.description
+    }
     res.status(201).json({
         message: 'Category was created'
     })
