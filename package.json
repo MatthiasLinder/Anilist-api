@@ -1,0 +1,22 @@
+{
+  "name": "anilist-api",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API for anime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthiasLinder/Anilist-api.git"
+  },
+  "author": "Matthias Linder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatthiasLinder/Anilist-api/issues"
+  },
+  "homepage": "https://github.com/MatthiasLinder/Anilist-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
