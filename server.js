@@ -3,10 +3,10 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-app.use((req, res, next) => {
-   res.status(200).json({
-       message: 'It works!'
-   });
-});
+const animeRoutes = require('./api/routes/anime');
+const categoryRoutes = require('./api/routes/categories');
+
+app.use('/anime', animeRoutes);
+app.use('/categories', categoryRoutes);
 
 app.listen(port, () => console.log(`Application is listening at http://localhost:${port}`))
