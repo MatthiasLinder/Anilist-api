@@ -31,14 +31,11 @@ const upload = multer({
 
 const AnimeController = require('../controllers/anime')
 
-router.get('/', AnimeController.anime_get_all)
-
-router.post('/', checkAuth, upload.single('animeImage'), AnimeController.anime_create),
-
+router.get('/', AnimeController.anime_get_all),
 router.get('/:animeId', AnimeController.anime_get_with_id),
 
+router.post('/', checkAuth, upload.single('animeImage'), AnimeController.anime_create),
 router.patch('/:animeId', checkAuth, AnimeController.anime_update),
-
 router.delete('/:animeId', checkAuth, AnimeController.anime_delete),
 
 module.exports = router;
