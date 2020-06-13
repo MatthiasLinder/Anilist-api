@@ -105,3 +105,6 @@ dist
 
 # The Password for MongoDB
 nodemon.json
+
+# images
+.png
