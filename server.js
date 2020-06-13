@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const app = express()
 
 const animeRoutes = require('./api/routes/anime');
+const userRoutes = require('./api/routes/user');
 
 mongoose.connect(
     `mongodb+srv://Anilist:` +
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/anime', animeRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found.');
