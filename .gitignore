@@ -108,3 +108,4 @@ nodemon.json
 
 # images
 .png
+*.png
