@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const multer = require('multer')
+const checkAuth = require('../middleware/check-auth')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -63,7 +64,7 @@ router.get('/', (req, res, next) => {
        })
 })
 
-router.post('/', upload.single('animeImage'), (req, res, next) => {
+router.post('/', checkAuth, upload.single('animeImage'),(req, res, next) => {
     const anime = new Anime({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
@@ -159,7 +160,7 @@ router.get('/episodes', (req, res, next) => {
 })
  */
 
-router.patch('/:animeId', (req, res, next) => {
+router.patch('/:animeId', checkAuth, (req, res, next) => {
     const id = req.params.animeId;
     const updateOps = {};
     for (const ops of req.body) {
@@ -184,7 +185,7 @@ router.patch('/:animeId', (req, res, next) => {
         });
 });
 
-router.delete('/:animeId', (req, res, next) => {
+router.delete('/:animeId', checkAuth, (req, res, next) => {
     const id = req.params.animeId
     Anime.deleteOne({_id: id})
         .exec()
