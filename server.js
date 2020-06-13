@@ -4,12 +4,9 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
-const fs = require('fs')
-
 const app = express()
 
 const animeRoutes = require('./api/routes/anime');
-const categoryRoutes = require('./api/routes/categories');
 
 mongoose.connect(
     `mongodb+srv://Anilist:` +
@@ -19,7 +16,6 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
-
 )
 
 app.use(morgan('dev'));
@@ -40,7 +36,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/anime', animeRoutes);
-app.use('/categories', categoryRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found.');
