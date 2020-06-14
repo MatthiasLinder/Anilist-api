@@ -6,7 +6,7 @@ const animeSchema = mongoose.Schema({
     description: { type: String, required: true },
     category: { type: String, required: true },
     episode_count: {type: Number, required: true},
-    animeImage: {type: String, required: true}
+    animeImage: {type: String, required: false}
 })
 
 module.exports = mongoose.model('Anime', animeSchema);
